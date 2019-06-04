@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>raid on super gu</title>
+    <link>https://guhua100.github.io/superg/tags/raid/</link>
+    <description>Recent content in raid on super gu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 06 Jun 2019 15:35:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://guhua100.github.io/superg/tags/raid/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Raid卡设置简介</title>
+      <link>https://guhua100.github.io/superg/2019/06/06/raid/</link>
+      <pubDate>Thu, 06 Jun 2019 15:35:14 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/2019/06/06/raid/</guid>
+      <description>&lt;p&gt;记录了raid卡的简单实用方法&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

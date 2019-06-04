@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>super gu</title>
+    <title>Ceph对象存储简单操作说明 &middot; super gu</title>
     <meta name="generator" content="Hugo 0.74.3" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,10 +10,7 @@
       <meta name="description" content="">
     
     
-      <link href="https://guhua100.github.io/superg/index.xml" rel="alternate" type="application/rss+xml" title="super gu" />
-      <link href="https://guhua100.github.io/superg/index.xml" rel="feed" type="application/rss+xml" title="super gu" />
-    
-    <link rel="canonical" href="https://guhua100.github.io/superg/"/>
+    <link rel="canonical" href="https://guhua100.github.io/superg/2019/06/06/ceph-multiupload/"/>
     <link rel="icon" href="https://guhua100.github.io/superg/favicon.ico">
     <link rel="apple-touch-icon" href="https://guhua100.github.io/superg/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://guhua100.github.io/superg/css/style.css">
@@ -23,19 +20,27 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="super gu" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://guhua100.github.io/superg/" />
-<meta property="og:updated_time" content="2020-03-12T15:36:41+08:00" />
+    <meta property="og:title" content="Ceph对象存储简单操作说明" />
+<meta property="og:description" content="本文简单介绍ceph的对象存储的里的基本概念，以及分块上传的基本设置等" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guhua100.github.io/superg/2019/06/06/ceph-multiupload/" />
+<meta property="article:published_time" content="2019-06-06T15:24:39+08:00" />
+<meta property="article:modified_time" content="2019-06-06T15:24:39+08:00" />
 
     
-    <meta itemprop="name" content="super gu">
-<meta itemprop="description" content="">
+    <meta itemprop="name" content="Ceph对象存储简单操作说明">
+<meta itemprop="description" content="本文简单介绍ceph的对象存储的里的基本概念，以及分块上传的基本设置等">
+<meta itemprop="datePublished" content="2019-06-06T15:24:39+08:00" />
+<meta itemprop="dateModified" content="2019-06-06T15:24:39+08:00" />
+<meta itemprop="wordCount" content="298">
+
+
+
+<meta itemprop="keywords" content="ceph," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="super gu"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Ceph对象存储简单操作说明"/>
+<meta name="twitter:description" content="本文简单介绍ceph的对象存储的里的基本概念，以及分块上传的基本设置等"/>
 
     
 
@@ -241,17 +246,14 @@
 
     <section id="main">
     
-    
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        </a>
 
         <header class="article-header">
-    <a href="https://guhua100.github.io/superg/post/">
+    <a href="https://guhua100.github.io/superg/2019/06/06/ceph-multiupload/">
     <h1 class="article-title" itemprop="name">
-        Posts
+        Ceph对象存储简单操作说明
     </h1>
     </a>
     <div class="article-meta">
@@ -259,38 +261,202 @@
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2020-03-12 15:36:41 &#43;0800 CST" itemprop="datePublished">2020-03-12</time>
+            <time datetime="2019-06-06 15:24:39 &#43;0800 CST" itemprop="datePublished">2019-06-06</time>
             &middot;
-            0
+            298
             words
             &middot;
-            0
+            2
             minute read
         </div>
         
         
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://guhua100.github.io/superg/categories/ceph">ceph</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://guhua100.github.io/superg/categories/s3">s3</a>
+                
+                
+            </div>
+            
+        
 
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://guhua100.github.io/superg/tags/ceph">ceph</a>
+                
+                
+            </div>
+            
         
     </div>
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>
-                
-            </p>
-            <p class="article-more-link">
-                <a href="https://guhua100.github.io/superg/post/">
-                    Read more
-                </a>
-            </p>
+            <p>本文简单介绍ceph的对象存储的里的基本概念，以及分块上传的基本设置等</p>
+<h3 id="1-ceph-rgw分块上传">1. ceph rgw分块上传：</h3>
+<blockquote>
+<p>参考文档：
+<a href="http://docs.ceph.com/docs/master/radosgw/s3/objectops/#initiate-multi-part-upload">http://docs.ceph.com/docs/master/radosgw/s3/objectops/#initiate-multi-part-upload</a></p>
+</blockquote>
+<p>ceph.conf里配置,设置最小的分块大小：</p>
+<pre><code>rgw_multipart_min_part_size = 5242880
+</code></pre>
+<p>最大的分块个数：</p>
+<pre><code>rgw_multipart_part_upload_limit = 10000
+</code></pre>
+<p>所以，对象存储支持的最大文件大小，可以从这两个数值相乘得到，理论上支持的文件可以无限大</p>
+<h3 id="2自定义标签">2、自定义标签</h3>
+<p>元数据里包含 ：文件名，大小，创建时间，用户，文件类型</p>
+<pre><code>{
+    &quot;name&quot;: &quot;titan-v1.0.0.tar.gz&quot;,
+    &quot;instance&quot;: &quot;&quot;,
+    &quot;ver&quot;: {
+        &quot;pool&quot;: 29,
+        &quot;epoch&quot;: 77
+    },
+    &quot;locator&quot;: &quot;&quot;,
+    &quot;exists&quot;: &quot;true&quot;,
+    &quot;meta&quot;: {
+        &quot;category&quot;: 1,
+        &quot;size&quot;: 1450862744,
+        &quot;mtime&quot;: &quot;2019-04-11 08:29:10.714290Z&quot;,
+        &quot;etag&quot;: &quot;84965812ed4f869db250f36b3c99c531-93&quot;,
+        &quot;owner&quot;: &quot;testuser&quot;,
+        &quot;owner_display_name&quot;: &quot;testuser&quot;,
+        &quot;content_type&quot;: &quot;application/x-gzip&quot;,
+        &quot;accounted_size&quot;: 1450862744,
+        &quot;user_data&quot;: &quot;&quot;
+    },
+    &quot;tag&quot;: &quot;309f6456-17f7-4b92-be76-06be716e8e28.34726.105&quot;,
+    &quot;flags&quot;: 0,
+    &quot;pending_map&quot;: [],
+    &quot;versioned_epoch&quot;: 0
+}
+</code></pre>
+<p>基于池的增加自定义属性：</p>
+<pre><code>rados setxattr hello size 100 -p testdata -c /var/lib/ceph/etc/ceph/ceph.conf
+</code></pre>
+<p>获取自定义属性：</p>
+<pre><code>rados getxattr hello size -p testdata -c /var/lib/ceph/etc/ceph/ceph.conf
+</code></pre>
+<p>radosgw的基于s3的元数据定义：
+以前缀 x-amz-meta- 开头的任何元数据都被视为用户定义元数据。</p>
+<h3 id="3-域相关">3. 域相关</h3>
+<p>列出realm:</p>
+<pre><code>radosgw-admin realm list
+</code></pre>
+<p>创建realm：</p>
+<pre><code>radosgw-admin realm create --rgw-realm=earth --default
+</code></pre>
+<p>删除realm：</p>
+<pre><code>radosgw-admin realm remove --rgw-realm=earch
+</code></pre>
+<p>查询realm：</p>
+<pre><code>radosgw-admin realm get --rgw-realm=earth 
+</code></pre>
+<p>列出zonegroup：</p>
+<pre><code>radosgw-admin zonegroup list
+</code></pre>
+<p>删除zonegroup：</p>
+<pre><code>radosgw-admin zonegroup delete --rgw-zonegroup=default
+</code></pre>
+<p>查询相关realm:</p>
+<pre><code>radosgw-admin zonegroup get --rgw-zonegroup=shanghai
+</code></pre>
+<p>创建zonegroup：</p>
+<pre><code>radosgw-admin zonegroup create --rgw-zonegroup=china --endpoints=node01:9000 --master --default
+</code></pre>
+<p>查看zonegroup：</p>
+<pre><code>radosgw-admin zonegroup get --rgw-zonegroup=china
+</code></pre>
+<p>查看zone：</p>
+<pre><code>radosgw-admin zone get --rgw-zone=shanghai
+</code></pre>
+<p>删除zone：</p>
+<pre><code>radosgw-admin zone delete --rgw-zone=default
+</code></pre>
+<p>创建默认的且为主的zone：</p>
+<pre><code>radosgw-admin zone create --rgw-zonegroup=china --rgw-zone=huabei --endpoints=node01:9000 --default --master
+</code></pre>
+<p>创建管理员用户：</p>
+<pre><code>radosgw-admin user create --uid=&quot;sync-user&quot; --display-name=&quot;sync user&quot; --system
+</code></pre>
+<p>提交修改变更，修改quata和palacement之后必须要执行</p>
+<pre><code>radosgw-admin period update --commit
+</code></pre>
+<p>修改zone参数，这里是修改管理员的key和secret</p>
+<pre><code>radosgw-admin zone modify --rgw-zone=huabei   --access-key=IEJZ18S279K1LSC0DKFS  --secret=xeKHlqiCXCzyvDKel2NnA5oN9UUlhM8Xi39xeBTO
+</code></pre>
+<p>创建普通用户：</p>
+<pre><code>radosgw-admin user create --uid=&quot;sync-user&quot; --display-name=&quot;sync user&quot; 
+</code></pre>
+<p>创建自用户：</p>
+<pre><code>radosgw-admin  subuser create --uid=testuser --display-name=&quot;hello &quot;
+</code></pre>
+<p>查看用户：</p>
+<pre><code>radosgw-admin  user list
+radosgw-admin  user info --uid=huabei
+</code></pre>
+<p>开启配额：</p>
+<pre><code>radosgw-admin quota enable --uid=testuser2 --quata-scope=user
+</code></pre>
+<p>设置配额：</p>
+<pre><code>radosgw-admin quota set --uid=testuser --quota-scope=bucket --max_size=100000 --max_objects=1000
+radosgw-admin quota set --uid=testuser --quota-scope=user --max_size=100000 --max_objects=1000
+</code></pre>
+<p>查看全局配额：</p>
+<pre><code>radosgw-admin global quota get
+</code></pre>
+<p>开启全局配额：</p>
+<pre><code>radosgw-admin global quota enable --quota-scope=bucket
+</code></pre>
+<p>设置全局配额：</p>
+<pre><code>radosgw-admin global quota set --uid=testuser --quota-scope=user --max_size=100000 --max_objects=1000
+</code></pre>
+<p>查看zonegroup placement</p>
+<pre><code>radosgw-admin zonegroup placement list
+</code></pre>
+<p>创建zonegroup placement</p>
+<pre><code>radosgw-admin zonegroup placement add --placement-id=new
+</code></pre>
+<p>修改zonegroup placement</p>
+<pre><code>radosgw-admin zonegroup  placement modify --placement-id=new
+</code></pre>
+<p>列出zone placement</p>
+<pre><code>radosgw-admin zone placement list  --rgw-zone=huabei
+</code></pre>
+<p>创建zone placement</p>
+<pre><code>radosgw-admin zone  placement add --placement-id=new --index-pool=abc --data-pool=cdf --data-extra-pool=mxb
+</code></pre>
+<p>删除placement</p>
+<pre><code>radosgw-admin zone placement rm --placement-id=new  --rgw-zone=shanghai
+</code></pre>
+<p>zonegroup添加新的placement</p>
+<pre><code>radosgw-admin zonegroup placement add --rgw-zonegroup=default --placement-id=test
+</code></pre>
+<p>修改placement</p>
+<pre><code>radosgw-admin zone placement modify --rgw-zone=default --placement-id=default-placement --compression=zstd</code></pre>
         </div>
         <footer class="article-footer">
-    <a data-url="https://guhua100.github.io/superg/post/" data-id="" class="article-share-link">
+    <a data-url="https://guhua100.github.io/superg/2019/06/06/ceph-multiupload/" data-id="037eea6356a40bc25054d5ae38b9e49a" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://guhua100.github.io/superg/post/#disqus_thread" class="article-comment-link">
+    <a href="https://guhua100.github.io/superg/2019/06/06/ceph-multiupload/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -362,12 +528,56 @@
 </footer>
 
     </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://guhua100.github.io/superg/2019/06/06/ceph-erasure/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">ceph纠删码规则设置及创建缓存池</div>
+    </a>
+    
+
+    
+    <a href="https://guhua100.github.io/superg/2019/06/06/raid/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Newer
+      </strong>
+      <div class="article-nav-title">Raid卡设置简介</div>
+    </a>
+    
+</nav>
+
+
 </article>
 
 
-<nav id="page-nav">
-
-</nav>
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "abc" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
 
 
     </section>

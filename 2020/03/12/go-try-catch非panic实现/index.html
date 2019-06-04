@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>super gu</title>
+    <title>go try catch非panic实现 &middot; super gu</title>
     <meta name="generator" content="Hugo 0.74.3" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,10 +10,7 @@
       <meta name="description" content="">
     
     
-      <link href="https://guhua100.github.io/superg/index.xml" rel="alternate" type="application/rss+xml" title="super gu" />
-      <link href="https://guhua100.github.io/superg/index.xml" rel="feed" type="application/rss+xml" title="super gu" />
-    
-    <link rel="canonical" href="https://guhua100.github.io/superg/"/>
+    <link rel="canonical" href="https://guhua100.github.io/superg/2020/03/12/go-try-catch%E9%9D%9Epanic%E5%AE%9E%E7%8E%B0/"/>
     <link rel="icon" href="https://guhua100.github.io/superg/favicon.ico">
     <link rel="apple-touch-icon" href="https://guhua100.github.io/superg/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://guhua100.github.io/superg/css/style.css">
@@ -23,19 +20,27 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="super gu" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://guhua100.github.io/superg/" />
-<meta property="og:updated_time" content="2020-03-12T15:36:41+08:00" />
+    <meta property="og:title" content="go try catch非panic实现" />
+<meta property="og:description" content="利用golang的error实现了一种try-catch式的代码实现" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guhua100.github.io/superg/2020/03/12/go-try-catch%E9%9D%9Epanic%E5%AE%9E%E7%8E%B0/" />
+<meta property="article:published_time" content="2020-03-12T15:36:41+08:00" />
+<meta property="article:modified_time" content="2020-03-12T15:36:41+08:00" />
 
     
-    <meta itemprop="name" content="super gu">
-<meta itemprop="description" content="">
+    <meta itemprop="name" content="go try catch非panic实现">
+<meta itemprop="description" content="利用golang的error实现了一种try-catch式的代码实现">
+<meta itemprop="datePublished" content="2020-03-12T15:36:41+08:00" />
+<meta itemprop="dateModified" content="2020-03-12T15:36:41+08:00" />
+<meta itemprop="wordCount" content="211">
+
+
+
+<meta itemprop="keywords" content="go," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="super gu"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="go try catch非panic实现"/>
+<meta name="twitter:description" content="利用golang的error实现了一种try-catch式的代码实现"/>
 
     
 
@@ -241,17 +246,14 @@
 
     <section id="main">
     
-    
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        </a>
 
         <header class="article-header">
-    <a href="https://guhua100.github.io/superg/post/">
+    <a href="https://guhua100.github.io/superg/2020/03/12/go-try-catch%E9%9D%9Epanic%E5%AE%9E%E7%8E%B0/">
     <h1 class="article-title" itemprop="name">
-        Posts
+        go try catch非panic实现
     </h1>
     </a>
     <div class="article-meta">
@@ -261,36 +263,118 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2020-03-12 15:36:41 &#43;0800 CST" itemprop="datePublished">2020-03-12</time>
             &middot;
-            0
+            211
             words
             &middot;
-            0
+            1
             minute read
         </div>
         
         
 
         
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://guhua100.github.io/superg/tags/go">go</a>
+                
+                
+            </div>
+            
+        
     </div>
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>
-                
-            </p>
-            <p class="article-more-link">
-                <a href="https://guhua100.github.io/superg/post/">
-                    Read more
-                </a>
-            </p>
+            <p>利用golang的error实现了一种try-catch式的代码实现</p>
+<p>代码如下：</p>
+<pre><code>package main
+  
+import (
+   &quot;fmt&quot;
+   &quot;runtime&quot;
+   &quot;os&quot;
+)
+  
+   // Try to open a file named dummy.one
+   // for input. Return the error if it won't open.
+func dummy1() error {
+   f,err:= os.Open(&quot;dummy.one&quot;)
+   if(err!=nil) {
+      return err
+   } else {
+      f.Close()
+      return nil
+   }
+}
+  
+   // Try to open a file named dummy.two
+   // for input. Return the error if it won't open.
+func dummy2() error {
+   f,err:= os.Open(&quot;dummy.two&quot;)
+   if(err!=nil) {
+      return err
+   } else {
+      f.Close()
+      return nil
+   }
+}
+  
+   // If the error value is not nil,
+   // display the caller's filename and
+   // calling line-number. Then, display
+   // the error object. Return true
+   // if the err parameter was true.
+   // Otherwise, return false.
+func dispErr(err error) bool {
+   if(err!=nil) {
+      _,file,line,_:=runtime.Caller(1)
+      fmt.Fprintf(os.Stderr,&quot;File: %s\nLine: %d\nErr: %v\n&quot;,file,line,err)
+      return true
+   }
+   return false
+}
+  
+func main() {
+   var err error
+  
+      // Create an anonymous function and
+      // invoke it.
+      //
+      // Use conditional returns to drop out
+      // of the function block to simulate falling
+      // out of a &quot;try&quot; block.
+      //
+   (func() {
+      fmt.Println(&quot;Attempt #1&quot;)
+      err=dummy1()
+      if dispErr(err) { return }
+  
+      fmt.Println(&quot;Attempt #2&quot;)
+      err=dummy2()
+      if dispErr(err) { return }
+   })()
+  
+   if(err!=nil) {
+         // catch block equivalent
+      fmt.Println(&quot;In 'catch' block&quot;)
+   }
+      // finally block equivalent
+   fmt.Println(&quot;Done!&quot;)
+}
+</code></pre><p>原文链接：
+<a href="http://golang.so/thread-18-1-1.html">http://golang.so/thread-18-1-1.html</a></p>
         </div>
         <footer class="article-footer">
-    <a data-url="https://guhua100.github.io/superg/post/" data-id="" class="article-share-link">
+    <a data-url="https://guhua100.github.io/superg/2020/03/12/go-try-catch%E9%9D%9Epanic%E5%AE%9E%E7%8E%B0/" data-id="08855e879d0dd4622a955fd855112c54" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://guhua100.github.io/superg/post/#disqus_thread" class="article-comment-link">
+    <a href="https://guhua100.github.io/superg/2020/03/12/go-try-catch%E9%9D%9Epanic%E5%AE%9E%E7%8E%B0/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -362,12 +446,49 @@
 </footer>
 
     </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://guhua100.github.io/superg/2019/08/09/mac%E4%B8%8B%E7%A0%B4%E8%A7%A3ultraedit/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">mac下破解ultraedit</div>
+    </a>
+    
+
+    
+</nav>
+
+
 </article>
 
 
-<nav id="page-nav">
-
-</nav>
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "abc" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
 
 
     </section>

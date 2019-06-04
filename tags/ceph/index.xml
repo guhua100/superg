@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ceph on super gu</title>
+    <link>https://guhua100.github.io/superg/tags/ceph/</link>
+    <description>Recent content in ceph on super gu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 06 Jun 2019 15:36:41 +0800</lastBuildDate>
+    
+	<atom:link href="https://guhua100.github.io/superg/tags/ceph/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ceph pg状态总结</title>
+      <link>https://guhua100.github.io/superg/2019/06/06/ceph-pg%E7%8A%B6%E6%80%81%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 06 Jun 2019 15:36:41 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/2019/06/06/ceph-pg%E7%8A%B6%E6%80%81%E6%80%BB%E7%BB%93/</guid>
+      <description>&lt;p&gt;记录一下ceph中，pg的各种状态&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ceph对象存储简单操作说明</title>
+      <link>https://guhua100.github.io/superg/2019/06/06/ceph-multiupload/</link>
+      <pubDate>Thu, 06 Jun 2019 15:24:39 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/2019/06/06/ceph-multiupload/</guid>
+      <description>&lt;p&gt;本文简单介绍ceph的对象存储的里的基本概念，以及分块上传的基本设置等&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ceph纠删码规则设置及创建缓存池</title>
+      <link>https://guhua100.github.io/superg/2019/06/06/ceph-erasure/</link>
+      <pubDate>Thu, 06 Jun 2019 15:24:39 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/2019/06/06/ceph-erasure/</guid>
+      <description>&lt;p&gt;本文介绍ceph中创建纠删码的方法&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ceph验证s3接口：多版本、标签和生命周期</title>
+      <link>https://guhua100.github.io/superg/2019/05/31/ceph-s3/</link>
+      <pubDate>Fri, 31 May 2019 16:38:36 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/2019/05/31/ceph-s3/</guid>
+      <description>&lt;p&gt;本文列出验证ceph的s3接口，包括多版本，标签和生命周期&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

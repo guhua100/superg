@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on super gu</title>
+    <link>https://guhua100.github.io/superg/categories/</link>
+    <description>Recent content in Categories on super gu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 06 Jun 2019 15:24:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://guhua100.github.io/superg/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ceph</title>
+      <link>https://guhua100.github.io/superg/categories/ceph/</link>
+      <pubDate>Thu, 06 Jun 2019 15:24:39 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/categories/ceph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>s3</title>
+      <link>https://guhua100.github.io/superg/categories/s3/</link>
+      <pubDate>Thu, 06 Jun 2019 15:24:39 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/categories/s3/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

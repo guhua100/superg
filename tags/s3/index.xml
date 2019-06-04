@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>s3 on super gu</title>
+    <link>https://guhua100.github.io/superg/tags/s3/</link>
+    <description>Recent content in s3 on super gu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 31 May 2019 16:38:36 +0800</lastBuildDate>
+    
+	<atom:link href="https://guhua100.github.io/superg/tags/s3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ceph验证s3接口：多版本、标签和生命周期</title>
+      <link>https://guhua100.github.io/superg/2019/05/31/ceph-s3/</link>
+      <pubDate>Fri, 31 May 2019 16:38:36 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/2019/05/31/ceph-s3/</guid>
+      <description>&lt;p&gt;本文列出验证ceph的s3接口，包括多版本，标签和生命周期&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

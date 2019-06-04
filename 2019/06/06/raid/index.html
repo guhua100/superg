@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>super gu</title>
+    <title>Raid卡设置简介 &middot; super gu</title>
     <meta name="generator" content="Hugo 0.74.3" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,10 +10,7 @@
       <meta name="description" content="">
     
     
-      <link href="https://guhua100.github.io/superg/index.xml" rel="alternate" type="application/rss+xml" title="super gu" />
-      <link href="https://guhua100.github.io/superg/index.xml" rel="feed" type="application/rss+xml" title="super gu" />
-    
-    <link rel="canonical" href="https://guhua100.github.io/superg/"/>
+    <link rel="canonical" href="https://guhua100.github.io/superg/2019/06/06/raid/"/>
     <link rel="icon" href="https://guhua100.github.io/superg/favicon.ico">
     <link rel="apple-touch-icon" href="https://guhua100.github.io/superg/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://guhua100.github.io/superg/css/style.css">
@@ -23,19 +20,27 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="super gu" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://guhua100.github.io/superg/" />
-<meta property="og:updated_time" content="2020-03-12T15:36:41+08:00" />
+    <meta property="og:title" content="Raid卡设置简介" />
+<meta property="og:description" content="记录了raid卡的简单实用方法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guhua100.github.io/superg/2019/06/06/raid/" />
+<meta property="article:published_time" content="2019-06-06T15:35:14+08:00" />
+<meta property="article:modified_time" content="2019-06-06T15:35:14+08:00" />
 
     
-    <meta itemprop="name" content="super gu">
-<meta itemprop="description" content="">
+    <meta itemprop="name" content="Raid卡设置简介">
+<meta itemprop="description" content="记录了raid卡的简单实用方法">
+<meta itemprop="datePublished" content="2019-06-06T15:35:14+08:00" />
+<meta itemprop="dateModified" content="2019-06-06T15:35:14+08:00" />
+<meta itemprop="wordCount" content="25">
+
+
+
+<meta itemprop="keywords" content="raid," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="super gu"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Raid卡设置简介"/>
+<meta name="twitter:description" content="记录了raid卡的简单实用方法"/>
 
     
 
@@ -241,17 +246,14 @@
 
     <section id="main">
     
-    
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        </a>
 
         <header class="article-header">
-    <a href="https://guhua100.github.io/superg/post/">
+    <a href="https://guhua100.github.io/superg/2019/06/06/raid/">
     <h1 class="article-title" itemprop="name">
-        Posts
+        Raid卡设置简介
     </h1>
     </a>
     <div class="article-meta">
@@ -259,38 +261,54 @@
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2020-03-12 15:36:41 &#43;0800 CST" itemprop="datePublished">2020-03-12</time>
+            <time datetime="2019-06-06 15:35:14 &#43;0800 CST" itemprop="datePublished">2019-06-06</time>
             &middot;
-            0
+            25
             words
             &middot;
-            0
+            1
             minute read
         </div>
         
         
 
         
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://guhua100.github.io/superg/tags/raid">raid</a>
+                
+                
+            </div>
+            
+        
     </div>
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>
-                
-            </p>
-            <p class="article-more-link">
-                <a href="https://guhua100.github.io/superg/post/">
-                    Read more
-                </a>
-            </p>
+            <p>记录了raid卡的简单实用方法</p>
+<h3 id="1列出所有设备">1、列出所有设备：</h3>
+<pre><code>/opt/MegaRAID/MegaCli/MegaCli64 -PDList -aALL
+</code></pre>
+<h3 id="2添加raid卡">2、添加raid卡</h3>
+<pre><code>/opt/MegaRAID/MegaCli/MegaCli64 -CfgLdAdd -r1 [37:0,37:1] WB Direct -a0
+</code></pre>
+<p>37:5 中 37是 Enclosure Device ID，5是Slot Number
+r0表示raid0</p>
+<h3 id="3查看已经创建的raid">3、查看已经创建的raid</h3>
+<pre><code>/opt/MegaRAID/storcli/storcli64 /c0 show
+</code></pre>
         </div>
         <footer class="article-footer">
-    <a data-url="https://guhua100.github.io/superg/post/" data-id="" class="article-share-link">
+    <a data-url="https://guhua100.github.io/superg/2019/06/06/raid/" data-id="65c35464232325619206373b52c13c3f" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://guhua100.github.io/superg/post/#disqus_thread" class="article-comment-link">
+    <a href="https://guhua100.github.io/superg/2019/06/06/raid/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -362,12 +380,56 @@
 </footer>
 
     </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://guhua100.github.io/superg/2019/06/06/ceph-multiupload/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">Ceph对象存储简单操作说明</div>
+    </a>
+    
+
+    
+    <a href="https://guhua100.github.io/superg/2019/06/06/ceph-pg%E7%8A%B6%E6%80%81%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Newer
+      </strong>
+      <div class="article-nav-title">Ceph pg状态总结</div>
+    </a>
+    
+</nav>
+
+
 </article>
 
 
-<nav id="page-nav">
-
-</nav>
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "abc" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
 
 
     </section>

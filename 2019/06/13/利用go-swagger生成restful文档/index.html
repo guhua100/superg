@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>super gu</title>
+    <title>利用go-swagger生成restful文档 &middot; super gu</title>
     <meta name="generator" content="Hugo 0.74.3" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,10 +10,7 @@
       <meta name="description" content="">
     
     
-      <link href="https://guhua100.github.io/superg/index.xml" rel="alternate" type="application/rss+xml" title="super gu" />
-      <link href="https://guhua100.github.io/superg/index.xml" rel="feed" type="application/rss+xml" title="super gu" />
-    
-    <link rel="canonical" href="https://guhua100.github.io/superg/"/>
+    <link rel="canonical" href="https://guhua100.github.io/superg/2019/06/13/%E5%88%A9%E7%94%A8go-swagger%E7%94%9F%E6%88%90restful%E6%96%87%E6%A1%A3/"/>
     <link rel="icon" href="https://guhua100.github.io/superg/favicon.ico">
     <link rel="apple-touch-icon" href="https://guhua100.github.io/superg/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://guhua100.github.io/superg/css/style.css">
@@ -23,19 +20,30 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="super gu" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://guhua100.github.io/superg/" />
-<meta property="og:updated_time" content="2020-03-12T15:36:41+08:00" />
+    <meta property="og:title" content="利用go-swagger生成restful文档" />
+<meta property="og:description" content="Swagger 可以生成一个具有互动性的API控制台,开发者可以用来快速学习和尝试API。 Swagger 可以生成客户端SDK代码用于各种不同的平台上的实现。
+go-swagger是golang语言平台下的swagger语言处理工具，本文介绍通过go-swagger和swagger2markup等工具转化成md或者adoc等格式的文档" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guhua100.github.io/superg/2019/06/13/%E5%88%A9%E7%94%A8go-swagger%E7%94%9F%E6%88%90restful%E6%96%87%E6%A1%A3/" />
+<meta property="article:published_time" content="2019-06-13T10:58:21+08:00" />
+<meta property="article:modified_time" content="2019-06-13T10:58:21+08:00" />
 
     
-    <meta itemprop="name" content="super gu">
-<meta itemprop="description" content="">
+    <meta itemprop="name" content="利用go-swagger生成restful文档">
+<meta itemprop="description" content="Swagger 可以生成一个具有互动性的API控制台,开发者可以用来快速学习和尝试API。 Swagger 可以生成客户端SDK代码用于各种不同的平台上的实现。
+go-swagger是golang语言平台下的swagger语言处理工具，本文介绍通过go-swagger和swagger2markup等工具转化成md或者adoc等格式的文档">
+<meta itemprop="datePublished" content="2019-06-13T10:58:21+08:00" />
+<meta itemprop="dateModified" content="2019-06-13T10:58:21+08:00" />
+<meta itemprop="wordCount" content="250">
+
+
+
+<meta itemprop="keywords" content="swagger,golang," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="super gu"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="利用go-swagger生成restful文档"/>
+<meta name="twitter:description" content="Swagger 可以生成一个具有互动性的API控制台,开发者可以用来快速学习和尝试API。 Swagger 可以生成客户端SDK代码用于各种不同的平台上的实现。
+go-swagger是golang语言平台下的swagger语言处理工具，本文介绍通过go-swagger和swagger2markup等工具转化成md或者adoc等格式的文档"/>
 
     
 
@@ -241,17 +249,14 @@
 
     <section id="main">
     
-    
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        </a>
 
         <header class="article-header">
-    <a href="https://guhua100.github.io/superg/post/">
+    <a href="https://guhua100.github.io/superg/2019/06/13/%E5%88%A9%E7%94%A8go-swagger%E7%94%9F%E6%88%90restful%E6%96%87%E6%A1%A3/">
     <h1 class="article-title" itemprop="name">
-        Posts
+        利用go-swagger生成restful文档
     </h1>
     </a>
     <div class="article-meta">
@@ -259,38 +264,174 @@
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2020-03-12 15:36:41 &#43;0800 CST" itemprop="datePublished">2020-03-12</time>
+            <time datetime="2019-06-13 10:58:21 &#43;0800 CST" itemprop="datePublished">2019-06-13</time>
             &middot;
-            0
+            250
             words
             &middot;
-            0
+            2
             minute read
         </div>
         
         
 
         
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://guhua100.github.io/superg/tags/swagger">swagger</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://guhua100.github.io/superg/tags/golang">golang</a>
+                
+                
+            </div>
+            
+        
     </div>
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>
-                
-            </p>
-            <p class="article-more-link">
-                <a href="https://guhua100.github.io/superg/post/">
-                    Read more
-                </a>
-            </p>
+            <p>Swagger 可以生成一个具有互动性的API控制台,开发者可以用来快速学习和尝试API。 Swagger 可以生成客户端SDK代码用于各种不同的平台上的实现。
+go-swagger是golang语言平台下的swagger语言处理工具，本文介绍通过go-swagger和swagger2markup等工具转化成md或者adoc等格式的文档</p>
+<blockquote>
+<p>在使用之前，必须先了解swagger文件的作用和使用方法，可以去<a href="https://swagger.io/docs/">swagger官网</a>学习，还有一份中文翻译的文档：<a href="https://legacy.gitbook.com/book/huangwenchao/swagger/details">《swagger入门到精通》</a></p>
+</blockquote>
+<h3 id="1go-swagger的安装">1.go-swagger的安装</h3>
+<ul>
+<li>
+<p>mac下安装命令行：</p>
+<p>brew tap go-swagger/go-swagger
+brew install go-swagger</p>
+</li>
+<li>
+<p>linux下安装：</p>
+<p>go get -u github.com/go-swagger/go-swagger/cmd/swagger
+export PATH=$GOPATH/bin:$PATH</p>
+</li>
+</ul>
+<h3 id="2在代码里写入swagger注释">2.在代码里写入swagger注释</h3>
+<p>swagger的最终目的是生成一份restful的描述文件，可以是json或者yaml等格式，这里只描述go-swagger的注释说明。<a href="https://goswagger.io/">go-swagger官方使用说明</a></p>
+<p>首先创建一个doc.go文件，将所有的注释都放在这里下面以几个具体例子来说明常见的注释写法：</p>
+<h4 id="21-post路由请求参数在body里">2.1 POST路由，请求参数在body里</h4>
+<p>请求路由：</p>
+<pre><code>// swagger:route POST /api/v1/cluster/init_osd init_osd
+//
+// Init Cluster osd
+//
+// This will init osd
+//
+//     Responses:
+//       200: ResponseInfoWrapper
+//		 500: ResponseInfoWrapper
+//	   Params:
+//			OsdInfo: OsdInfoWrapper
+</code></pre>
+<p>请求参数：</p>
+<pre><code>//Init Osd Info
+//
+// swagger:parameters init_osd
+type OsdInfoWrapper struct {
+    // Init osd parameters
+    // in: body
+    //Required:true
+    Body common.InitOsdInfo
+}
+</code></pre>
+<p>返回参数，具体：</p>
+<pre><code>// Response Info
+//
+// swagger:response ResponseInfoWrapper
+type ResponseInfoWrapper struct {
+    //common response info
+    //in: body
+    //Required:true
+    Body 	common.ResponseInfo
+}
+</code></pre>
+<h4 id="22-post路由请求参数在query">2.2 POST路由，请求参数在query</h4>
+<p>请求路由：</p>
+<pre><code>// swagger:route POST /api/v1/cluster/create_placement add_placement
+//
+// add placement
+//
+// This will add  add a placement to the cluster
+//
+//
+//     Responses:
+//       200: ResponseInfoWrapper
+//		 500: ResponseInfoWrapper
+//	   Params:
+//		addPlacement: AddPlacementParameter
+</code></pre>
+<p>请求参数：</p>
+<pre><code>//add placement
+//
+// swagger:parameters add_placement
+type AddPlacementParameter struct {
+    //in: query
+    //Required:true
+    Placement 		string			`json:&quot;placement&quot;`
+    //in: query
+    //Required:true
+    Index  			string			`json:&quot;index&quot;`
+    //in: query
+    //Required:true
+    Data  			string			`json:&quot;data&quot;`
+    //in: query
+    //Required:true
+    Data_extra  	string			`json:&quot;data-extra&quot;`
+    //in: query
+    //Required:true
+    Zone  			string			`json:&quot;zone&quot;`
+    //in: query
+    //Required:true
+    Zonegroup  		string			`json:&quot;zonegroup&quot;`
+    //in: query
+    Compress  		string			`json:&quot;compress&quot;`
+}
+</code></pre>
+<h3 id="3生成json文档">3.生成json文档</h3>
+<p>在代码目录下，执行，下面的命令生成json文档</p>
+<pre><code> swagger generate spec -o ./g.json
+</code></pre>
+<h3 id="4转化gjson成其他格式文档">4.转化g.json成其他格式文档</h3>
+<pre><code>swagger2markup convert -i g.json -d ./output
+</code></pre>
+<p>swagger2markup是java写的工具，可以把swagger生成大的json文档转化成md或者adoc格式的文档，默认生成的是adoc文档。
+如果要生成md文档，可以制定配置文件，配置文件config.properties内容为：</p>
+<pre><code>swagger2markup.markupLanguage=MARKDOWN
+swagger2markup.outputLanguage=ZH
+</code></pre>
+<p>再执行命令：</p>
+<pre><code>swagger2markup convert -i g.json -d ./output -c config.properties
+</code></pre>
+<p>swagger2markup具体用法可以看:<a href="https://github.com/Swagger2Markup/swagger2markup-cli">swagger2markup的</a>介绍</p>
+<h3 id="5用asciidoctor将md或者adoc结果再转成html或者">5.用asciidoctor将md或者adoc结果再转成html或者</h3>
+<p>-d 生成文件类型</p>
+<p>-a toc=left 指定目录到左侧</p>
+<p>-a sectnums 指定生成的文件带section编</p>
+<pre><code>asciidoctor -d article -a toc=left -a sectnums *.adoc
+</code></pre>
+<p>asciidoctor的官方使用说明：<a href="https://asciidoctor.org/">asciidoctor</a></p>
+<p>最终实际效果如下：</p>
+<p><img src="%E6%95%88%E6%9E%9C%E5%9B%BE.png" alt="效果图" title="效果图"></p>
+<h3 id="6-asciidoctor-pdf转成pdf中文时会有乱码解决方法">6. asciidoctor-pdf转成pdf，中文时会有乱码解决方法</h3>
+<p>这是asciidoctor自带的字体不支持中文引起的，解决方法：</p>
+<p><code># asciidoctor-pdf -a pdf-style=theme.yml -a pdf-fontsdir=fonts test.adoc</code></p>
+<p>其中theme.yml时自定义的文件，修改成自己的字体，pdf-fontsdir时自定义的属性，代表自定义的字体目录</p>
         </div>
         <footer class="article-footer">
-    <a data-url="https://guhua100.github.io/superg/post/" data-id="" class="article-share-link">
+    <a data-url="https://guhua100.github.io/superg/2019/06/13/%E5%88%A9%E7%94%A8go-swagger%E7%94%9F%E6%88%90restful%E6%96%87%E6%A1%A3/" data-id="47f16286e05e56c321572e72a5cf1aff" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://guhua100.github.io/superg/post/#disqus_thread" class="article-comment-link">
+    <a href="https://guhua100.github.io/superg/2019/06/13/%E5%88%A9%E7%94%A8go-swagger%E7%94%9F%E6%88%90restful%E6%96%87%E6%A1%A3/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -362,12 +503,56 @@
 </footer>
 
     </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://guhua100.github.io/superg/2019/06/06/ceph-pg%E7%8A%B6%E6%80%81%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">Ceph pg状态总结</div>
+    </a>
+    
+
+    
+    <a href="https://guhua100.github.io/superg/2019/08/09/elastic-search%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Newer
+      </strong>
+      <div class="article-nav-title">elastic search使用简介</div>
+    </a>
+    
+</nav>
+
+
 </article>
 
 
-<nav id="page-nav">
-
-</nav>
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "abc" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
 
 
     </section>

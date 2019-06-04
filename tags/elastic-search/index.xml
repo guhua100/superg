@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>elastic search on super gu</title>
+    <link>https://guhua100.github.io/superg/tags/elastic-search/</link>
+    <description>Recent content in elastic search on super gu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 09 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://guhua100.github.io/superg/tags/elastic-search/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>elastic search使用简介</title>
+      <link>https://guhua100.github.io/superg/2019/08/09/elastic-search%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/2019/08/09/elastic-search%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/</guid>
+      <description>&lt;p&gt;elastic search的简单使用说明&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

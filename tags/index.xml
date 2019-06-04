@@ -1,14 +1,96 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 天马行空</title>
+    <title>Tags on super gu</title>
     <link>https://guhua100.github.io/superg/tags/</link>
-    <description>Recent content in Tags on 天马行空</description>
+    <description>Recent content in Tags on super gu</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 12 Mar 2020 15:36:41 +0800</lastBuildDate>
     
 	<atom:link href="https://guhua100.github.io/superg/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>go</title>
+      <link>https://guhua100.github.io/superg/tags/go/</link>
+      <pubDate>Thu, 12 Mar 2020 15:36:41 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hack</title>
+      <link>https://guhua100.github.io/superg/tags/hack/</link>
+      <pubDate>Fri, 09 Aug 2019 15:24:39 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/tags/hack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>elastic search</title>
+      <link>https://guhua100.github.io/superg/tags/elastic-search/</link>
+      <pubDate>Fri, 09 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/tags/elastic-search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://guhua100.github.io/superg/tags/golang/</link>
+      <pubDate>Thu, 13 Jun 2019 10:58:21 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swagger</title>
+      <link>https://guhua100.github.io/superg/tags/swagger/</link>
+      <pubDate>Thu, 13 Jun 2019 10:58:21 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/tags/swagger/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ceph</title>
+      <link>https://guhua100.github.io/superg/tags/ceph/</link>
+      <pubDate>Thu, 06 Jun 2019 15:36:41 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/tags/ceph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>raid</title>
+      <link>https://guhua100.github.io/superg/tags/raid/</link>
+      <pubDate>Thu, 06 Jun 2019 15:35:14 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/tags/raid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://guhua100.github.io/superg/tags/git/</link>
+      <pubDate>Thu, 06 Jun 2019 15:24:39 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>s3</title>
+      <link>https://guhua100.github.io/superg/tags/s3/</link>
+      <pubDate>Fri, 31 May 2019 16:38:36 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/tags/s3/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

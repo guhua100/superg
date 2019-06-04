@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on super gu</title>
+    <link>https://guhua100.github.io/superg/tags/git/</link>
+    <description>Recent content in git on super gu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 06 Jun 2019 15:24:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://guhua100.github.io/superg/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>git tips</title>
+      <link>https://guhua100.github.io/superg/2019/06/06/gittips/</link>
+      <pubDate>Thu, 06 Jun 2019 15:24:39 +0800</pubDate>
+      
+      <guid>https://guhua100.github.io/superg/2019/06/06/gittips/</guid>
+      <description>&lt;p&gt;git的简单实用命令记录&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

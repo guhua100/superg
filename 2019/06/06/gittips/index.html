@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>super gu</title>
+    <title>git tips &middot; super gu</title>
     <meta name="generator" content="Hugo 0.74.3" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,10 +10,7 @@
       <meta name="description" content="">
     
     
-      <link href="https://guhua100.github.io/superg/index.xml" rel="alternate" type="application/rss+xml" title="super gu" />
-      <link href="https://guhua100.github.io/superg/index.xml" rel="feed" type="application/rss+xml" title="super gu" />
-    
-    <link rel="canonical" href="https://guhua100.github.io/superg/"/>
+    <link rel="canonical" href="https://guhua100.github.io/superg/2019/06/06/gittips/"/>
     <link rel="icon" href="https://guhua100.github.io/superg/favicon.ico">
     <link rel="apple-touch-icon" href="https://guhua100.github.io/superg/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://guhua100.github.io/superg/css/style.css">
@@ -23,19 +20,27 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="super gu" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://guhua100.github.io/superg/" />
-<meta property="og:updated_time" content="2020-03-12T15:36:41+08:00" />
+    <meta property="og:title" content="git tips" />
+<meta property="og:description" content="git的简单实用命令记录" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://guhua100.github.io/superg/2019/06/06/gittips/" />
+<meta property="article:published_time" content="2019-06-06T15:24:39+08:00" />
+<meta property="article:modified_time" content="2019-06-06T15:24:39+08:00" />
 
     
-    <meta itemprop="name" content="super gu">
-<meta itemprop="description" content="">
+    <meta itemprop="name" content="git tips">
+<meta itemprop="description" content="git的简单实用命令记录">
+<meta itemprop="datePublished" content="2019-06-06T15:24:39+08:00" />
+<meta itemprop="dateModified" content="2019-06-06T15:24:39+08:00" />
+<meta itemprop="wordCount" content="53">
+
+
+
+<meta itemprop="keywords" content="git," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="super gu"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="git tips"/>
+<meta name="twitter:description" content="git的简单实用命令记录"/>
 
     
 
@@ -241,17 +246,14 @@
 
     <section id="main">
     
-    
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        </a>
 
         <header class="article-header">
-    <a href="https://guhua100.github.io/superg/post/">
+    <a href="https://guhua100.github.io/superg/2019/06/06/gittips/">
     <h1 class="article-title" itemprop="name">
-        Posts
+        git tips
     </h1>
     </a>
     <div class="article-meta">
@@ -259,38 +261,71 @@
         
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2020-03-12 15:36:41 &#43;0800 CST" itemprop="datePublished">2020-03-12</time>
+            <time datetime="2019-06-06 15:24:39 &#43;0800 CST" itemprop="datePublished">2019-06-06</time>
             &middot;
-            0
+            53
             words
             &middot;
-            0
+            1
             minute read
         </div>
         
         
 
         
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://guhua100.github.io/superg/tags/git">git</a>
+                
+                
+            </div>
+            
+        
     </div>
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>
-                
-            </p>
-            <p class="article-more-link">
-                <a href="https://guhua100.github.io/superg/post/">
-                    Read more
-                </a>
-            </p>
+            <p>git的简单实用命令记录</p>
+<h3 id="1git-更新子模块commit-id">1、git 更新子模块commit id</h3>
+<hr>
+<p>git是一个分布式的代码管理软件，git在管理子模块项目时，初学者经常会不会同步更新子模块的更新，原因就是在于git clone主项目时，是根据commit id来更新submodule的，默认commit不会更新commit id</p>
+<hr>
+<ul>
+<li>解决方法，git add的时候加 -u选项，表示增加、修改、删除、更新的地方都加入到缓存区</li>
+</ul>
+<pre><code>git add -u
+git commit -a -m &quot;&quot;
+</code></pre><h3 id="2git使用多个git库时配置文件配置">2、git使用多个git库时配置文件配置</h3>
+<hr>
+<p>git 默认的id文件是id_rsa，当不同的git库使用时会产生冲突</p>
+<hr>
+<ul>
+<li>解决方法：
+在~/.ssh/config里增加配置：</li>
+</ul>
+<pre><code>Host github.com api.github.com
+IdentityFile /path/to/github.com.id_rsa
+</code></pre><p>其它机器git库以此类推  测试</p>
+<h3 id="3git强制覆盖">3、git强制覆盖：</h3>
+<pre><code>    git fetch --all
+    git reset --hard origin/master
+    git pull
+</code></pre><ul>
+<li>git强制覆盖本地命令（单条执行）：</li>
+</ul>
+<p><code>git fetch --all &amp;&amp; git reset --hard origin/master &amp;&amp; git pull</code></p>
         </div>
         <footer class="article-footer">
-    <a data-url="https://guhua100.github.io/superg/post/" data-id="" class="article-share-link">
+    <a data-url="https://guhua100.github.io/superg/2019/06/06/gittips/" data-id="3ca6a39ffaae54e849fcd9553f696d1b" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://guhua100.github.io/superg/post/#disqus_thread" class="article-comment-link">
+    <a href="https://guhua100.github.io/superg/2019/06/06/gittips/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -362,12 +397,56 @@
 </footer>
 
     </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://guhua100.github.io/superg/2019/05/31/ceph-s3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">ceph验证s3接口：多版本、标签和生命周期</div>
+    </a>
+    
+
+    
+    <a href="https://guhua100.github.io/superg/2019/06/06/ceph-erasure/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Newer
+      </strong>
+      <div class="article-nav-title">ceph纠删码规则设置及创建缓存池</div>
+    </a>
+    
+</nav>
+
+
 </article>
 
 
-<nav id="page-nav">
-
-</nav>
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "abc" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
 
 
     </section>
